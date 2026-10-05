@@ -1,0 +1,5 @@
+Model,Split/Protocol,Accuracy,Precision,Recall,F1,ROC-AUC,PR-AUC,Threshold,Notes
+Original XGBoost,Temporal,0.9140,0.0833,0.0588,0.0690,0.6439,0.0870,0.1597,Original repository benchmark
+Claude LightGBM V2,Random stratified,0.5847,0.1204,0.8125,0.2097,0.7466,0.1913,0.10,High-sensitivity screening point supplied/reproduced from V2 archive
+Final LightGBM V2 leak-free,Random stratified,0.8347,0.2326,0.6250,0.3390,0.7449,0.2563,0.10,Primary screening point; feature filtering and imputation fit on train only
+Final LightGBM V2 leak-free,Random stratified,0.9322,0.5000,0.0625,0.1111,0.7449,0.2563,0.50,Accuracy benchmark / conventional classification point

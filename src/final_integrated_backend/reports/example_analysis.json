@@ -1,0 +1,1804 @@
+{
+  "sample": {
+    "sample_id": 238,
+    "split": "test",
+    "timestamp": "2008-08-17T23:04:00",
+    "actual_label": "FAIL",
+    "n_model_features": 444,
+    "note": null
+  },
+  "prediction": {
+    "sample_id": 238,
+    "predicted_class": "FAIL",
+    "failure_probability": 0.5123164579026871,
+    "risk_level": "HIGH",
+    "decision_threshold": 0.1
+  },
+  "anomaly": {
+    "available": false,
+    "sample_id": 238,
+    "anomaly_score": null,
+    "anomaly_label": null,
+    "effective_score": null,
+    "source": null
+  },
+  "explanation": {
+    "units": "log-odds of FAIL (positive = pushes toward FAIL, negative = pushes toward PASS)",
+    "base_value": -3.2224219382502737,
+    "logit": 0.049275799756071326,
+    "failure_probability": 0.5123164579026871,
+    "top_positive": [
+      {
+        "feature": "Sensor 478",
+        "value": 10.1224,
+        "contribution": 0.3067092660504095,
+        "direction": "toward FAIL"
+      },
+      {
+        "feature": "Sensor 104",
+        "value": -0.0035,
+        "contribution": 0.2805373202721065,
+        "direction": "toward FAIL"
+      },
+      {
+        "feature": "Sensor 60",
+        "value": 8.9764,
+        "contribution": 0.24216600993049817,
+        "direction": "toward FAIL"
+      },
+      {
+        "feature": "Sensor 34",
+        "value": 8.6013,
+        "contribution": 0.23068154320083398,
+        "direction": "toward FAIL"
+      },
+      {
+        "feature": "Sensor 206",
+        "value": 15.27,
+        "contribution": 0.17853507249305714,
+        "direction": "toward FAIL"
+      },
+      {
+        "feature": "Sensor 64",
+        "value": 25.2836,
+        "contribution": 0.15395563421451894,
+        "direction": "toward FAIL"
+      },
+      {
+        "feature": "Sensor 356",
+        "value": 0.0171,
+        "contribution": 0.10720267870937977,
+        "direction": "toward FAIL"
+      },
+      {
+        "feature": "Sensor 130",
+        "value": 0.0,
+        "contribution": 0.10706462907518885,
+        "direction": "toward FAIL"
+      },
+      {
+        "feature": "Sensor 324",
+        "value": 5.3506,
+        "contribution": 0.09304963957953472,
+        "direction": "toward FAIL"
+      },
+      {
+        "feature": "Sensor 342",
+        "value": 4.1887,
+        "contribution": 0.0895025723179612,
+        "direction": "toward FAIL"
+      }
+    ],
+    "top_negative": [
+      {
+        "feature": "Sensor 32",
+        "value": 4.6521,
+        "contribution": -0.4677490751870229,
+        "direction": "toward PASS"
+      },
+      {
+        "feature": "Sensor 22",
+        "value": -6375.0,
+        "contribution": -0.20770885279508328,
+        "direction": "toward PASS"
+      },
+      {
+        "feature": "Sensor 87",
+        "value": 2.3774,
+        "contribution": -0.18102579840718416,
+        "direction": "toward PASS"
+      },
+      {
+        "feature": "Sensor 485",
+        "value": 608.6957,
+        "contribution": -0.1726766743120247,
+        "direction": "toward PASS"
+      },
+      {
+        "feature": "Sensor 118",
+        "value": 59.6315,
+        "contribution": -0.16541109553076194,
+        "direction": "toward PASS"
+      },
+      {
+        "feature": "Sensor 490",
+        "value": 61.9535,
+        "contribution": -0.1628026760569887,
+        "direction": "toward PASS"
+      },
+      {
+        "feature": "Sensor 588",
+        "value": 0.0069,
+        "contribution": -0.07979701710527386,
+        "direction": "toward PASS"
+      },
+      {
+        "feature": "Sensor 138",
+        "value": 181.2,
+        "contribution": -0.07383968794884346,
+        "direction": "toward PASS"
+      },
+      {
+        "feature": "Sensor 489",
+        "value": 452.1277,
+        "contribution": -0.0729218378778673,
+        "direction": "toward PASS"
+      },
+      {
+        "feature": "Sensor 282",
+        "value": 0.0208,
+        "contribution": -0.07223532131131444,
+        "direction": "toward PASS"
+      }
+    ]
+  },
+  "root_cause_candidates": [
+    {
+      "feature": "Sensor 478",
+      "current_value": 10.1224,
+      "normal_stats": {
+        "n": 1019,
+        "mean": 5.997350343473994,
+        "median": 5.1949,
+        "std": 6.7600288861381195,
+        "p5": 2.8124800000000003,
+        "p95": 9.93189
+      },
+      "failure_stats": {
+        "n": 73,
+        "mean": 9.202812328767124,
+        "median": 6.4994,
+        "std": 19.683931959200358,
+        "p5": 3.5514799999999997,
+        "p95": 13.45984
+      },
+      "shap_contribution": 0.3067092660504095,
+      "shap_rank": 1,
+      "deviation_sigma": 2.7549346960551433,
+      "deviation_percentile_in_pass": 95.28949950932287,
+      "failure_association": {
+        "effect_size_r": 0.28912309946630455,
+        "auc": 0.6445615497331523,
+        "p_value": 3.610917238116459e-05,
+        "q_value": 0.004638409959392173,
+        "significant": true
+      },
+      "historical_evidence": {
+        "similar_fail_samples_checked": 10,
+        "abnormal_same_direction": 8
+      },
+      "anomaly_evidence": null,
+      "components": {
+        "shap": 1.0,
+        "deviation": 0.6887336740137858,
+        "failure_association": 0.990990990990991,
+        "historical": 0.8,
+        "anomaly": null
+      },
+      "component_levels": {
+        "shap": "HIGH",
+        "deviation": "HIGH",
+        "failure_association": "HIGH",
+        "historical": "HIGH",
+        "anomaly": null
+      },
+      "weights_used": {
+        "shap": 0.4444444444444445,
+        "deviation": 0.22222222222222224,
+        "failure_association": 0.16666666666666666,
+        "historical": 0.16666666666666666
+      },
+      "root_cause_score": 0.895994870501562,
+      "confidence": "HIGH",
+      "evidence_strength": "Strong",
+      "comparison": {
+        "feature": "Sensor 478",
+        "current_value": 10.1224,
+        "pass": {
+          "n": 1019,
+          "mean": 5.997350343473994,
+          "median": 5.1949,
+          "std": 6.7600288861381195,
+          "p5": 2.8124800000000003,
+          "p95": 9.93189
+        },
+        "fail": {
+          "n": 73,
+          "mean": 9.202812328767124,
+          "median": 6.4994,
+          "std": 19.683931959200358,
+          "p5": 3.5514799999999997,
+          "p95": 13.45984
+        },
+        "percentile_in_pass": 95.28949950932287,
+        "percentile_in_fail": 87.67123287671232,
+        "deviation_sigma": 2.7549346960551433,
+        "deviation_sigma_mean_std": 0.6102118387370637,
+        "closer_to": "FAIL",
+        "histogram": {
+          "edges": [
+            2.3031189999999997,
+            2.9489383499999984,
+            3.594757699999997,
+            4.240577049999995,
+            4.8863963999999935,
+            5.532215749999993,
+            6.178035099999991,
+            6.82385444999999,
+            7.469673799999988,
+            8.115493149999986,
+            8.761312499999985,
+            9.407131849999985,
+            10.052951199999981,
+            10.698770549999981,
+            11.344589899999981,
+            11.990409249999978,
+            12.636228599999978,
+            13.282047949999974,
+            13.927867299999974,
+            14.573686649999974,
+            15.21950599999997
+          ],
+          "pass_fraction": [
+            0.0647693817468106,
+            0.07948969578017664,
+            0.13444553483807656,
+            0.155053974484789,
+            0.12855740922473013,
+            0.12168792934249265,
+            0.09322865554465162,
+            0.06280667320902845,
+            0.050049067713444556,
+            0.02845927379784102,
+            0.018645731108930325,
+            0.014720314033366046,
+            0.012757605495583905,
+            0.005888125613346418,
+            0.0068694798822374874,
+            0.001962708537782139,
+            0.002944062806673209,
+            0.001962708537782139,
+            0.002944062806673209,
+            0.012757605495583905
+          ],
+          "fail_fraction": [
+            0.0273972602739726,
+            0.0410958904109589,
+            0.0821917808219178,
+            0.1232876712328767,
+            0.0684931506849315,
+            0.1232876712328767,
+            0.0410958904109589,
+            0.136986301369863,
+            0.0273972602739726,
+            0.0547945205479452,
+            0.0684931506849315,
+            0.0547945205479452,
+            0.0410958904109589,
+            0.0273972602739726,
+            0.0,
+            0.0,
+            0.0,
+            0.0410958904109589,
+            0.0273972602739726,
+            0.0136986301369863
+          ]
+        }
+      },
+      "label": "Root-Cause Candidate (hypothesis, not proven cause)",
+      "rank": 1,
+      "explanation": "Sensor 478 adds +0.307 log-odds toward FAIL (SHAP rank #1). Current value 10.1224 is +2.8\u03c3 (robust) from the PASS median 5.1949 (percentile 95 of PASS samples). PASS and FAIL distributions differ significantly (FDR q=0.00464, effect r=+0.29). Value is closer to the FAIL median (6.4994). 8/10 of the most similar historical FAIL samples deviate in the same direction. Hypothesis ranked by model and statistical evidence; not a proven root cause."
+    },
+    {
+      "feature": "Sensor 104",
+      "current_value": -0.0035,
+      "normal_stats": {
+        "n": 1022,
+        "mean": -0.009899902152641879,
+        "median": -0.0102,
+        "std": 0.0029472359584074926,
+        "p5": -0.014,
+        "p95": -0.0047
+      },
+      "failure_stats": {
+        "n": 73,
+        "mean": -0.007967123287671232,
+        "median": -0.0078,
+        "std": 0.0033765965275094744,
+        "p5": -0.01394,
+        "p95": -0.0030200000000000058
+      },
+      "shap_contribution": 0.2805373202721065,
+      "shap_rank": 2,
+      "deviation_sigma": 2.5106044936073277,
+      "deviation_percentile_in_pass": 98.43444227005871,
+      "failure_association": {
+        "effect_size_r": 0.35431466638071996,
+        "auc": 0.67715733319036,
+        "p_value": 4.1172242711747844e-07,
+        "q_value": 0.00018280475764016041,
+        "significant": true
+      },
+      "historical_evidence": {
+        "similar_fail_samples_checked": 10,
+        "abnormal_same_direction": 4
+      },
+      "anomaly_evidence": null,
+      "components": {
+        "shap": 0.9146685520286776,
+        "deviation": 0.6276511234018319,
+        "failure_association": 1.0,
+        "historical": 0.4,
+        "anomaly": null
+      },
+      "component_levels": {
+        "shap": "HIGH",
+        "deviation": "MEDIUM",
+        "failure_association": "HIGH",
+        "historical": "MEDIUM",
+        "anomaly": null
+      },
+      "weights_used": {
+        "shap": 0.4444444444444445,
+        "deviation": 0.22222222222222224,
+        "failure_association": 0.16666666666666666,
+        "historical": 0.16666666666666666
+      },
+      "root_cause_score": 0.7793307172131527,
+      "confidence": "HIGH",
+      "evidence_strength": "Strong",
+      "comparison": {
+        "feature": "Sensor 104",
+        "current_value": -0.0035,
+        "pass": {
+          "n": 1022,
+          "mean": -0.009899902152641879,
+          "median": -0.0102,
+          "std": 0.0029472359584074926,
+          "p5": -0.014,
+          "p95": -0.0047
+        },
+        "fail": {
+          "n": 73,
+          "mean": -0.007967123287671232,
+          "median": -0.0078,
+          "std": 0.0033765965275094744,
+          "p5": -0.01394,
+          "p95": -0.0030200000000000058
+        },
+        "percentile_in_pass": 98.43444227005871,
+        "percentile_in_fail": 93.15068493150685,
+        "deviation_sigma": 2.5106044936073277,
+        "deviation_sigma_mean_std": 2.171492965938159,
+        "closer_to": "FAIL",
+        "histogram": {
+          "edges": [
+            -0.015612,
+            -0.0149405,
+            -0.014269,
+            -0.013597500000000002,
+            -0.012926000000000003,
+            -0.012254500000000003,
+            -0.011583000000000005,
+            -0.010911500000000005,
+            -0.010240000000000006,
+            -0.009568500000000008,
+            -0.008897000000000007,
+            -0.008225500000000009,
+            -0.00755400000000001,
+            -0.00688250000000001,
+            -0.006211000000000012,
+            -0.005539500000000011,
+            -0.004868000000000013,
+            -0.0041965000000000145,
+            -0.0035250000000000142,
+            -0.0028535000000000157,
+            -0.0021820000000000164
+          ],
+          "pass_fraction": [
+            0.015655577299412915,
+            0.021526418786692758,
+            0.043052837573385516,
+            0.05185909980430528,
+            0.07338551859099804,
+            0.09001956947162426,
+            0.10078277886497064,
+            0.09393346379647749,
+            0.0949119373776908,
+            0.10371819960861056,
+            0.07045009784735812,
+            0.03718199608610567,
+            0.04500978473581213,
+            0.026418786692759294,
+            0.03522504892367906,
+            0.04207436399217221,
+            0.02054794520547945,
+            0.01761252446183953,
+            0.007827788649706457,
+            0.008806262230919765
+          ],
+          "fail_fraction": [
+            0.0136986301369863,
+            0.0136986301369863,
+            0.0547945205479452,
+            0.0,
+            0.0136986301369863,
+            0.0273972602739726,
+            0.0821917808219178,
+            0.0821917808219178,
+            0.0136986301369863,
+            0.0410958904109589,
+            0.136986301369863,
+            0.0821917808219178,
+            0.0410958904109589,
+            0.0821917808219178,
+            0.0821917808219178,
+            0.0410958904109589,
+            0.0958904109589041,
+            0.0273972602739726,
+            0.0136986301369863,
+            0.0547945205479452
+          ]
+        }
+      },
+      "label": "Root-Cause Candidate (hypothesis, not proven cause)",
+      "rank": 2,
+      "explanation": "Sensor 104 adds +0.281 log-odds toward FAIL (SHAP rank #2). Current value -0.0035 is +2.5\u03c3 (robust) from the PASS median -0.0102 (percentile 98 of PASS samples). PASS and FAIL distributions differ significantly (FDR q=0.000183, effect r=+0.35). Value is closer to the FAIL median (-0.0078). 4/10 of the most similar historical FAIL samples deviate in the same direction. Hypothesis ranked by model and statistical evidence; not a proven root cause."
+    },
+    {
+      "feature": "Sensor 60",
+      "current_value": 8.9764,
+      "normal_stats": {
+        "n": 1018,
+        "mean": 2.737513555992141,
+        "median": 0.8386,
+        "std": 8.50568322345888,
+        "p5": -6.04685,
+        "p95": 23.187744999999993
+      },
+      "failure_stats": {
+        "n": 73,
+        "mean": 7.819502739726026,
+        "median": 5.03,
+        "std": 11.179303503100577,
+        "p5": -5.698,
+        "p95": 26.835979999999992
+      },
+      "shap_contribution": 0.24216600993049817,
+      "shap_rank": 3,
+      "deviation_sigma": 1.9037426825987227,
+      "deviation_percentile_in_pass": 86.64047151277013,
+      "failure_association": {
+        "effect_size_r": 0.32673520467206707,
+        "auc": 0.6633676023360335,
+        "p_value": 3.036396156708658e-06,
+        "q_value": 0.0006740799467893221,
+        "significant": true
+      },
+      "historical_evidence": {
+        "similar_fail_samples_checked": 10,
+        "abnormal_same_direction": 7
+      },
+      "anomaly_evidence": null,
+      "components": {
+        "shap": 0.7895620926258444,
+        "deviation": 0.4759356706496807,
+        "failure_association": 0.9932432432432432,
+        "historical": 0.7,
+        "anomaly": null
+      },
+      "component_levels": {
+        "shap": "HIGH",
+        "deviation": "MEDIUM",
+        "failure_association": "HIGH",
+        "historical": "HIGH",
+        "anomaly": null
+      },
+      "weights_used": {
+        "shap": 0.4444444444444445,
+        "deviation": 0.22222222222222224,
+        "failure_association": 0.16666666666666666,
+        "historical": 0.16666666666666666
+      },
+      "root_cause_score": 0.7388871751852893,
+      "confidence": "HIGH",
+      "evidence_strength": "Strong",
+      "comparison": {
+        "feature": "Sensor 60",
+        "current_value": 8.9764,
+        "pass": {
+          "n": 1018,
+          "mean": 2.737513555992141,
+          "median": 0.8386,
+          "std": 8.50568322345888,
+          "p5": -6.04685,
+          "p95": 23.187744999999993
+        },
+        "fail": {
+          "n": 73,
+          "mean": 7.819502739726026,
+          "median": 5.03,
+          "std": 11.179303503100577,
+          "p5": -5.698,
+          "p95": 26.835979999999992
+        },
+        "percentile_in_pass": 86.64047151277013,
+        "percentile_in_fail": 63.013698630136986,
+        "deviation_sigma": 1.9037426825987227,
+        "deviation_sigma_mean_std": 0.7334962142489458,
+        "closer_to": "FAIL",
+        "histogram": {
+          "edges": [
+            -11.2549,
+            -9.265825,
+            -7.27675,
+            -5.287675,
+            -3.2986000000000004,
+            -1.3095250000000007,
+            0.679549999999999,
+            2.6686249999999987,
+            4.657699999999998,
+            6.646774999999998,
+            8.635849999999998,
+            10.624924999999998,
+            12.613999999999997,
+            14.603074999999997,
+            16.592149999999997,
+            18.581224999999996,
+            20.570299999999996,
+            22.559374999999996,
+            24.548449999999995,
+            26.537524999999995,
+            28.52659999999999
+          ],
+          "pass_fraction": [
+            0.01768172888015717,
+            0.015717092337917484,
+            0.03732809430255403,
+            0.07170923379174853,
+            0.13555992141453832,
+            0.20333988212180745,
+            0.17485265225933203,
+            0.11984282907662082,
+            0.0618860510805501,
+            0.021611001964636542,
+            0.0206286836935167,
+            0.007858546168958742,
+            0.0068762278978389,
+            0.012770137524557957,
+            0.014734774066797643,
+            0.008840864440078585,
+            0.012770137524557957,
+            0.018664047151277015,
+            0.010805500982318271,
+            0.026522593320235755
+          ],
+          "fail_fraction": [
+            0.0273972602739726,
+            0.0,
+            0.0410958904109589,
+            0.0273972602739726,
+            0.0684931506849315,
+            0.0684931506849315,
+            0.1643835616438356,
+            0.0958904109589041,
+            0.0684931506849315,
+            0.0684931506849315,
+            0.0410958904109589,
+            0.0547945205479452,
+            0.0410958904109589,
+            0.0273972602739726,
+            0.0410958904109589,
+            0.0136986301369863,
+            0.0273972602739726,
+            0.0273972602739726,
+            0.0410958904109589,
+            0.0547945205479452
+          ]
+        }
+      },
+      "label": "Root-Cause Candidate (hypothesis, not proven cause)",
+      "rank": 3,
+      "explanation": "Sensor 60 adds +0.242 log-odds toward FAIL (SHAP rank #3). Current value 8.9764 is +1.9\u03c3 (robust) from the PASS median 0.8386 (percentile 87 of PASS samples). PASS and FAIL distributions differ significantly (FDR q=0.000674, effect r=+0.33). Value is closer to the FAIL median (5.03). 7/10 of the most similar historical FAIL samples deviate in the same direction. Hypothesis ranked by model and statistical evidence; not a proven root cause."
+    },
+    {
+      "feature": "Sensor 206",
+      "current_value": 15.27,
+      "normal_stats": {
+        "n": 1019,
+        "mean": 8.761324828263003,
+        "median": 7.66,
+        "std": 8.48539739032826,
+        "p5": 4.17,
+        "p95": 14.774999999999986
+      },
+      "failure_stats": {
+        "n": 73,
+        "mean": 12.103835616438355,
+        "median": 9.52,
+        "std": 16.99393843160105,
+        "p5": 5.224,
+        "p95": 20.293999999999993
+      },
+      "shap_contribution": 0.17853507249305714,
+      "shap_rank": 5,
+      "deviation_sigma": 2.8836374604589277,
+      "deviation_percentile_in_pass": 95.58390578999018,
+      "failure_association": {
+        "effect_size_r": 0.28312742817965497,
+        "auc": 0.6415637140898275,
+        "p_value": 5.22343463895515e-05,
+        "q_value": 0.004638409959392173,
+        "significant": true
+      },
+      "historical_evidence": {
+        "similar_fail_samples_checked": 10,
+        "abnormal_same_direction": 8
+      },
+      "anomaly_evidence": null,
+      "components": {
+        "shap": 0.5820987242808433,
+        "deviation": 0.7209093651147319,
+        "failure_association": 0.9864864864864865,
+        "historical": 0.8,
+        "anomaly": null
+      },
+      "component_levels": {
+        "shap": "MEDIUM",
+        "deviation": "HIGH",
+        "failure_association": "HIGH",
+        "historical": "HIGH",
+        "anomaly": null
+      },
+      "weights_used": {
+        "shap": 0.4444444444444445,
+        "deviation": 0.22222222222222224,
+        "failure_association": 0.16666666666666666,
+        "historical": 0.16666666666666666
+      },
+      "root_cause_score": 0.7166603730091741,
+      "confidence": "HIGH",
+      "evidence_strength": "Strong",
+      "comparison": {
+        "feature": "Sensor 206",
+        "current_value": 15.27,
+        "pass": {
+          "n": 1019,
+          "mean": 8.761324828263003,
+          "median": 7.66,
+          "std": 8.48539739032826,
+          "p5": 4.17,
+          "p95": 14.774999999999986
+        },
+        "fail": {
+          "n": 73,
+          "mean": 12.103835616438355,
+          "median": 9.52,
+          "std": 16.99393843160105,
+          "p5": 5.224,
+          "p95": 20.293999999999993
+        },
+        "percentile_in_pass": 95.58390578999018,
+        "percentile_in_fail": 87.67123287671232,
+        "deviation_sigma": 2.8836374604589277,
+        "deviation_sigma_mean_std": 0.7670442375693152,
+        "closer_to": "FAIL",
+        "histogram": {
+          "edges": [
+            3.3464,
+            4.2797249999999964,
+            5.213049999999994,
+            6.14637499999999,
+            7.079699999999987,
+            8.013024999999985,
+            8.946349999999981,
+            9.879674999999978,
+            10.812999999999974,
+            11.74632499999997,
+            12.679649999999967,
+            13.612974999999963,
+            14.54629999999996,
+            15.479624999999956,
+            16.412949999999956,
+            17.346274999999952,
+            18.27959999999995,
+            19.212924999999945,
+            20.14624999999994,
+            21.079574999999938,
+            22.012899999999934
+          ],
+          "pass_fraction": [
+            0.05789990186457311,
+            0.08243375858684986,
+            0.12757605495583907,
+            0.14327772325809618,
+            0.1364082433758587,
+            0.10794896957801767,
+            0.1099116781157998,
+            0.058881256133464184,
+            0.053974484789008834,
+            0.03042198233562316,
+            0.020608439646712464,
+            0.017664376840039256,
+            0.011776251226692836,
+            0.008832188420019628,
+            0.0068694798822374874,
+            0.003925417075564278,
+            0.003925417075564278,
+            0.0009813542688910696,
+            0.002944062806673209,
+            0.013738959764474975
+          ],
+          "fail_fraction": [
+            0.0273972602739726,
+            0.0273972602739726,
+            0.0958904109589041,
+            0.1095890410958904,
+            0.1095890410958904,
+            0.0684931506849315,
+            0.0684931506849315,
+            0.136986301369863,
+            0.0273972602739726,
+            0.0410958904109589,
+            0.0821917808219178,
+            0.0547945205479452,
+            0.0410958904109589,
+            0.0273972602739726,
+            0.0,
+            0.0,
+            0.0,
+            0.0273972602739726,
+            0.0273972602739726,
+            0.0273972602739726
+          ]
+        }
+      },
+      "label": "Root-Cause Candidate (hypothesis, not proven cause)",
+      "rank": 4,
+      "explanation": "Sensor 206 adds +0.179 log-odds toward FAIL (SHAP rank #5). Current value 15.27 is +2.9\u03c3 (robust) from the PASS median 7.66 (percentile 96 of PASS samples). PASS and FAIL distributions differ significantly (FDR q=0.00464, effect r=+0.28). Value is closer to the FAIL median (9.52). 8/10 of the most similar historical FAIL samples deviate in the same direction. Hypothesis ranked by model and statistical evidence; not a proven root cause."
+    },
+    {
+      "feature": "Sensor 64",
+      "current_value": 25.2836,
+      "normal_stats": {
+        "n": 1018,
+        "mean": 13.828067485265224,
+        "median": 13.295449999999999,
+        "std": 5.619560238267577,
+        "p5": 6.75806,
+        "p95": 22.517094999999998
+      },
+      "failure_stats": {
+        "n": 73,
+        "mean": 15.945038356164385,
+        "median": 13.9918,
+        "std": 7.962162486124784,
+        "p5": 7.8439,
+        "p95": 30.86491999999999
+      },
+      "shap_contribution": 0.15395563421451894,
+      "shap_rank": 6,
+      "deviation_sigma": 2.708298632844101,
+      "deviation_percentile_in_pass": 96.66011787819254,
+      "failure_association": {
+        "effect_size_r": 0.12682670829184262,
+        "auc": 0.5634133541459213,
+        "p_value": 0.06999194186341395,
+        "q_value": 0.37898075838238776,
+        "significant": false
+      },
+      "historical_evidence": {
+        "similar_fail_samples_checked": 10,
+        "abnormal_same_direction": 2
+      },
+      "anomaly_evidence": null,
+      "components": {
+        "shap": 0.5019595142887382,
+        "deviation": 0.6770746582110253,
+        "failure_association": 0.8153153153153153,
+        "historical": 0.2,
+        "anomaly": null
+      },
+      "component_levels": {
+        "shap": "MEDIUM",
+        "deviation": "HIGH",
+        "failure_association": "HIGH",
+        "historical": "LOW",
+        "anomaly": null
+      },
+      "weights_used": {
+        "shap": 0.4444444444444445,
+        "deviation": 0.22222222222222224,
+        "failure_association": 0.16666666666666666,
+        "historical": 0.16666666666666666
+      },
+      "root_cause_score": 0.5427733718388863,
+      "confidence": "MEDIUM",
+      "evidence_strength": "Medium",
+      "comparison": {
+        "feature": "Sensor 64",
+        "current_value": 25.2836,
+        "pass": {
+          "n": 1018,
+          "mean": 13.828067485265224,
+          "median": 13.295449999999999,
+          "std": 5.619560238267577,
+          "p5": 6.75806,
+          "p95": 22.517094999999998
+        },
+        "fail": {
+          "n": 73,
+          "mean": 15.945038356164385,
+          "median": 13.9918,
+          "std": 7.962162486124784,
+          "p5": 7.8439,
+          "p95": 30.86491999999999
+        },
+        "percentile_in_pass": 96.66011787819254,
+        "percentile_in_fail": 89.04109589041096,
+        "deviation_sigma": 2.708298632844101,
+        "deviation_sigma_mean_std": 2.0385104935304224,
+        "closer_to": "FAIL",
+        "histogram": {
+          "edges": [
+            4.44621,
+            5.858188999999996,
+            7.270167999999993,
+            8.68214699999999,
+            10.094125999999985,
+            11.50610499999998,
+            12.918083999999979,
+            14.330062999999974,
+            15.74204199999997,
+            17.154020999999968,
+            18.565999999999963,
+            19.97797899999996,
+            21.389957999999957,
+            22.801936999999953,
+            24.213915999999948,
+            25.625894999999947,
+            27.037873999999942,
+            28.449852999999937,
+            29.861831999999936,
+            31.27381099999993,
+            32.685789999999926
+          ],
+          "pass_fraction": [
+            0.029469548133595286,
+            0.03929273084479371,
+            0.06483300589390963,
+            0.09037328094302555,
+            0.12082514734774066,
+            0.12475442043222004,
+            0.12770137524557956,
+            0.1100196463654224,
+            0.10117878192534381,
+            0.05992141453831041,
+            0.03732809430255403,
+            0.02848722986247544,
+            0.0206286836935167,
+            0.007858546168958742,
+            0.005893909626719057,
+            0.004911591355599214,
+            0.0068762278978389,
+            0.008840864440078585,
+            0.0,
+            0.010805500982318271
+          ],
+          "fail_fraction": [
+            0.0273972602739726,
+            0.0136986301369863,
+            0.0821917808219178,
+            0.0547945205479452,
+            0.1643835616438356,
+            0.0684931506849315,
+            0.136986301369863,
+            0.0410958904109589,
+            0.0547945205479452,
+            0.0958904109589041,
+            0.0273972602739726,
+            0.0547945205479452,
+            0.0273972602739726,
+            0.0410958904109589,
+            0.0136986301369863,
+            0.0136986301369863,
+            0.0,
+            0.0136986301369863,
+            0.0136986301369863,
+            0.0547945205479452
+          ]
+        }
+      },
+      "label": "Root-Cause Candidate (hypothesis, not proven cause)",
+      "rank": 5,
+      "explanation": "Sensor 64 adds +0.154 log-odds toward FAIL (SHAP rank #6). Current value 25.2836 is +2.7\u03c3 (robust) from the PASS median 13.2954 (percentile 97 of PASS samples). PASS vs FAIL separation for this feature is not statistically significant after FDR correction. Value is closer to the FAIL median (13.9918). 2/10 of the most similar historical FAIL samples deviate in the same direction. Hypothesis ranked by model and statistical evidence; not a proven root cause."
+    }
+  ],
+  "historical_matches": [
+    {
+      "sample_id": 229,
+      "similarity": 0.7279464850547923,
+      "similarity_pct": 72.8,
+      "label": "PASS",
+      "model_risk_oof": 0.08969681966503605,
+      "timestamp": "2008-08-17T04:19:00.000000000"
+    },
+    {
+      "sample_id": 481,
+      "similarity": 0.6850746520853725,
+      "similarity_pct": 68.5,
+      "label": "PASS",
+      "model_risk_oof": 0.07256581830465701,
+      "timestamp": "2008-08-28T15:19:00.000000000"
+    },
+    {
+      "sample_id": 270,
+      "similarity": 0.6752352781077688,
+      "similarity_pct": 67.5,
+      "label": "PASS",
+      "model_risk_oof": 0.03700614757251903,
+      "timestamp": "2008-08-18T15:33:00.000000000"
+    },
+    {
+      "sample_id": 619,
+      "similarity": 0.6737768464376496,
+      "similarity_pct": 67.4,
+      "label": "PASS",
+      "model_risk_oof": 0.05943402749664907,
+      "timestamp": "2008-09-01T00:39:00.000000000"
+    },
+    {
+      "sample_id": 305,
+      "similarity": 0.6655163061899462,
+      "similarity_pct": 66.6,
+      "label": "PASS",
+      "model_risk_oof": 0.0657325004600384,
+      "timestamp": "2008-08-19T11:44:00.000000000"
+    }
+  ],
+  "counterfactuals": [
+    {
+      "parameter": "Sensor 478",
+      "current_value": 10.1224,
+      "current_risk": 0.5123164579026871,
+      "operating_range": [
+        2.3031189999999997,
+        15.21950599999997
+      ],
+      "max_change_abs": 1.01224,
+      "disclaimer": "This is a model-based counterfactual recommendation, not a physically validated process correction. Real semiconductor process changes require engineering validation and safety constraints.",
+      "recommended_value": null,
+      "predicted_risk": null,
+      "risk_reduction": null,
+      "relative_reduction": null,
+      "intervention_magnitude": null,
+      "confidence": null,
+      "alternatives": [],
+      "curve": [
+        {
+          "value": 9.11016,
+          "risk": 0.4940580334655758,
+          "risk_reduction": 0.018258424437111287,
+          "intervention_magnitude": 0.10000000000000002,
+          "objective": 0.5940580334655758
+        },
+        {
+          "value": 9.211384,
+          "risk": 0.4940580334655758,
+          "risk_reduction": 0.018258424437111287,
+          "intervention_magnitude": 0.09,
+          "objective": 0.5840580334655758
+        },
+        {
+          "value": 9.312608,
+          "risk": 0.4940580334655758,
+          "risk_reduction": 0.018258424437111287,
+          "intervention_magnitude": 0.07999999999999997,
+          "objective": 0.5740580334655758
+        },
+        {
+          "value": 9.413832,
+          "risk": 0.4940580334655758,
+          "risk_reduction": 0.018258424437111287,
+          "intervention_magnitude": 0.07000000000000013,
+          "objective": 0.5640580334655759
+        },
+        {
+          "value": 9.515056,
+          "risk": 0.5047687700078837,
+          "risk_reduction": 0.007547687894803423,
+          "intervention_magnitude": 0.060000000000000116,
+          "objective": 0.5647687700078838
+        },
+        {
+          "value": 9.61628,
+          "risk": 0.5047687700078837,
+          "risk_reduction": 0.007547687894803423,
+          "intervention_magnitude": 0.0500000000000001,
+          "objective": 0.5547687700078838
+        },
+        {
+          "value": 9.717504,
+          "risk": 0.5047687700078837,
+          "risk_reduction": 0.007547687894803423,
+          "intervention_magnitude": 0.04000000000000008,
+          "objective": 0.5447687700078837
+        },
+        {
+          "value": 9.818728,
+          "risk": 0.5047687700078837,
+          "risk_reduction": 0.007547687894803423,
+          "intervention_magnitude": 0.030000000000000058,
+          "objective": 0.5347687700078837
+        },
+        {
+          "value": 9.919952,
+          "risk": 0.5047687700078837,
+          "risk_reduction": 0.007547687894803423,
+          "intervention_magnitude": 0.02000000000000004,
+          "objective": 0.5247687700078837
+        },
+        {
+          "value": 10.021176,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.01000000000000002,
+          "objective": 0.5223164579026871
+        },
+        {
+          "value": 10.223624,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.009999999999999844,
+          "objective": 0.522316457902687
+        },
+        {
+          "value": 10.324848,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.01999999999999986,
+          "objective": 0.532316457902687
+        },
+        {
+          "value": 10.426072,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.02999999999999988,
+          "objective": 0.542316457902687
+        },
+        {
+          "value": 10.527296,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.039999999999999904,
+          "objective": 0.552316457902687
+        },
+        {
+          "value": 10.62852,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.04999999999999992,
+          "objective": 0.562316457902687
+        },
+        {
+          "value": 10.729744,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.05999999999999994,
+          "objective": 0.572316457902687
+        },
+        {
+          "value": 10.830968,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.06999999999999997,
+          "objective": 0.582316457902687
+        },
+        {
+          "value": 10.932192,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07999999999999997,
+          "objective": 0.592316457902687
+        },
+        {
+          "value": 11.033416,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.09,
+          "objective": 0.6023164579026871
+        },
+        {
+          "value": 11.13464,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.09999999999999984,
+          "objective": 0.612316457902687
+        }
+      ],
+      "status": "NO_EFFECTIVE_INTERVENTION",
+      "message": "No single change within limits reduces predicted risk by >= 0.02.",
+      "lowest_risk_found": 0.4940580334655758
+    },
+    {
+      "parameter": "Sensor 104",
+      "current_value": -0.0035,
+      "current_risk": 0.5123164579026871,
+      "operating_range": [
+        -0.015612,
+        -0.0021820000000000164
+      ],
+      "max_change_abs": 0.00035000000000000005,
+      "disclaimer": "This is a model-based counterfactual recommendation, not a physically validated process correction. Real semiconductor process changes require engineering validation and safety constraints.",
+      "recommended_value": null,
+      "predicted_risk": null,
+      "risk_reduction": null,
+      "relative_reduction": null,
+      "intervention_magnitude": null,
+      "confidence": null,
+      "alternatives": [],
+      "curve": [
+        {
+          "value": -0.00385,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.1,
+          "objective": 0.6123164579026871
+        },
+        {
+          "value": -0.003815,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.08999999999999993,
+          "objective": 0.6023164579026871
+        },
+        {
+          "value": -0.00378,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07999999999999996,
+          "objective": 0.592316457902687
+        },
+        {
+          "value": -0.003745,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.06999999999999999,
+          "objective": 0.582316457902687
+        },
+        {
+          "value": -0.00371,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.06000000000000003,
+          "objective": 0.5723164579026871
+        },
+        {
+          "value": -0.003675,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.04999999999999995,
+          "objective": 0.562316457902687
+        },
+        {
+          "value": -0.00364,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.03999999999999998,
+          "objective": 0.5523164579026871
+        },
+        {
+          "value": -0.003605,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.030000000000000016,
+          "objective": 0.5423164579026871
+        },
+        {
+          "value": -0.00357,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.019999999999999928,
+          "objective": 0.532316457902687
+        },
+        {
+          "value": -0.003535,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.009999999999999964,
+          "objective": 0.5223164579026871
+        },
+        {
+          "value": -0.003465,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.009999999999999964,
+          "objective": 0.5223164579026871
+        },
+        {
+          "value": -0.00343,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.020000000000000052,
+          "objective": 0.5323164579026871
+        },
+        {
+          "value": -0.003395,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.030000000000000016,
+          "objective": 0.5423164579026871
+        },
+        {
+          "value": -0.00336,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.03999999999999998,
+          "objective": 0.5523164579026871
+        },
+        {
+          "value": -0.003325,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.050000000000000065,
+          "objective": 0.5623164579026871
+        },
+        {
+          "value": -0.00329,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.06000000000000003,
+          "objective": 0.5723164579026871
+        },
+        {
+          "value": -0.003255,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.06999999999999999,
+          "objective": 0.582316457902687
+        },
+        {
+          "value": -0.00322,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07999999999999996,
+          "objective": 0.592316457902687
+        },
+        {
+          "value": -0.003185,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.09000000000000005,
+          "objective": 0.6023164579026872
+        },
+        {
+          "value": -0.00315,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.1,
+          "objective": 0.6123164579026871
+        }
+      ],
+      "status": "NO_EFFECTIVE_INTERVENTION",
+      "message": "No single change within limits reduces predicted risk by >= 0.02.",
+      "lowest_risk_found": 0.5123164579026871
+    },
+    {
+      "parameter": "Sensor 60",
+      "current_value": 8.9764,
+      "current_risk": 0.5123164579026871,
+      "operating_range": [
+        -11.2549,
+        28.52659999999999
+      ],
+      "max_change_abs": 0.89764,
+      "disclaimer": "This is a model-based counterfactual recommendation, not a physically validated process correction. Real semiconductor process changes require engineering validation and safety constraints.",
+      "recommended_value": null,
+      "predicted_risk": null,
+      "risk_reduction": null,
+      "relative_reduction": null,
+      "intervention_magnitude": null,
+      "confidence": null,
+      "alternatives": [],
+      "curve": [
+        {
+          "value": 8.07876,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.0999999999999999,
+          "objective": 0.612316457902687
+        },
+        {
+          "value": 8.168524,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.09000000000000002,
+          "objective": 0.6023164579026872
+        },
+        {
+          "value": 8.258288,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07999999999999996,
+          "objective": 0.592316457902687
+        },
+        {
+          "value": 8.348052,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07000000000000009,
+          "objective": 0.5823164579026872
+        },
+        {
+          "value": 8.437816,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.06000000000000002,
+          "objective": 0.5723164579026871
+        },
+        {
+          "value": 8.52758,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.04999999999999995,
+          "objective": 0.562316457902687
+        },
+        {
+          "value": 8.617344,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.04000000000000008,
+          "objective": 0.5523164579026871
+        },
+        {
+          "value": 8.707108,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.03000000000000001,
+          "objective": 0.5423164579026871
+        },
+        {
+          "value": 8.796872,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.01999999999999994,
+          "objective": 0.532316457902687
+        },
+        {
+          "value": 8.886636,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.01000000000000007,
+          "objective": 0.5223164579026872
+        },
+        {
+          "value": 9.066164,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.01000000000000007,
+          "objective": 0.5223164579026872
+        },
+        {
+          "value": 9.155928,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.01999999999999994,
+          "objective": 0.532316457902687
+        },
+        {
+          "value": 9.245692,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.03000000000000001,
+          "objective": 0.5423164579026871
+        },
+        {
+          "value": 9.335456,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.04000000000000008,
+          "objective": 0.5523164579026871
+        },
+        {
+          "value": 9.42522,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.04999999999999995,
+          "objective": 0.562316457902687
+        },
+        {
+          "value": 9.514984,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.06000000000000002,
+          "objective": 0.5723164579026871
+        },
+        {
+          "value": 9.604748,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07000000000000009,
+          "objective": 0.5823164579026872
+        },
+        {
+          "value": 9.694512,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07999999999999996,
+          "objective": 0.592316457902687
+        },
+        {
+          "value": 9.784276,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.09000000000000002,
+          "objective": 0.6023164579026872
+        },
+        {
+          "value": 9.87404,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.1000000000000001,
+          "objective": 0.6123164579026872
+        }
+      ],
+      "status": "NO_EFFECTIVE_INTERVENTION",
+      "message": "No single change within limits reduces predicted risk by >= 0.02.",
+      "lowest_risk_found": 0.5123164579026871
+    },
+    {
+      "parameter": "Sensor 206",
+      "current_value": 15.27,
+      "current_risk": 0.5123164579026871,
+      "operating_range": [
+        3.3464,
+        22.012899999999934
+      ],
+      "max_change_abs": 1.5270000000000001,
+      "disclaimer": "This is a model-based counterfactual recommendation, not a physically validated process correction. Real semiconductor process changes require engineering validation and safety constraints.",
+      "recommended_value": null,
+      "predicted_risk": null,
+      "risk_reduction": null,
+      "relative_reduction": null,
+      "intervention_magnitude": null,
+      "confidence": null,
+      "alternatives": [],
+      "curve": [
+        {
+          "value": 13.743,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.09999999999999995,
+          "objective": 0.6123164579026871
+        },
+        {
+          "value": 13.8957,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.09,
+          "objective": 0.6023164579026871
+        },
+        {
+          "value": 14.0484,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07999999999999992,
+          "objective": 0.592316457902687
+        },
+        {
+          "value": 14.2011,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.06999999999999995,
+          "objective": 0.582316457902687
+        },
+        {
+          "value": 14.3538,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.06,
+          "objective": 0.5723164579026871
+        },
+        {
+          "value": 14.5065,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.04999999999999992,
+          "objective": 0.562316457902687
+        },
+        {
+          "value": 14.6592,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.03999999999999996,
+          "objective": 0.552316457902687
+        },
+        {
+          "value": 14.8119,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.03,
+          "objective": 0.5423164579026871
+        },
+        {
+          "value": 14.9646,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.01999999999999992,
+          "objective": 0.532316457902687
+        },
+        {
+          "value": 15.1173,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.00999999999999996,
+          "objective": 0.5223164579026871
+        },
+        {
+          "value": 15.4227,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.010000000000000077,
+          "objective": 0.5223164579026872
+        },
+        {
+          "value": 15.5754,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.02000000000000004,
+          "objective": 0.5323164579026871
+        },
+        {
+          "value": 15.7281,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.03,
+          "objective": 0.5423164579026871
+        },
+        {
+          "value": 15.8808,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.04000000000000008,
+          "objective": 0.5523164579026871
+        },
+        {
+          "value": 16.0335,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.05000000000000004,
+          "objective": 0.5623164579026871
+        },
+        {
+          "value": 16.1862,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.06,
+          "objective": 0.5723164579026871
+        },
+        {
+          "value": 16.3389,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.06999999999999995,
+          "objective": 0.582316457902687
+        },
+        {
+          "value": 16.4916,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07999999999999992,
+          "objective": 0.592316457902687
+        },
+        {
+          "value": 16.6443,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.09000000000000011,
+          "objective": 0.6023164579026872
+        },
+        {
+          "value": 16.797,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.10000000000000007,
+          "objective": 0.6123164579026872
+        }
+      ],
+      "status": "NO_EFFECTIVE_INTERVENTION",
+      "message": "No single change within limits reduces predicted risk by >= 0.02.",
+      "lowest_risk_found": 0.5123164579026871
+    },
+    {
+      "parameter": "Sensor 64",
+      "current_value": 25.2836,
+      "current_risk": 0.5123164579026871,
+      "operating_range": [
+        4.44621,
+        32.685789999999926
+      ],
+      "max_change_abs": 2.52836,
+      "disclaimer": "This is a model-based counterfactual recommendation, not a physically validated process correction. Real semiconductor process changes require engineering validation and safety constraints.",
+      "recommended_value": null,
+      "predicted_risk": null,
+      "risk_reduction": null,
+      "relative_reduction": null,
+      "intervention_magnitude": null,
+      "confidence": null,
+      "alternatives": [],
+      "curve": [
+        {
+          "value": 22.75524,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.09999999999999998,
+          "objective": 0.6123164579026871
+        },
+        {
+          "value": 23.008076,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.09000000000000002,
+          "objective": 0.6023164579026872
+        },
+        {
+          "value": 23.260912,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07999999999999995,
+          "objective": 0.592316457902687
+        },
+        {
+          "value": 23.513748,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07,
+          "objective": 0.5823164579026872
+        },
+        {
+          "value": 23.766584,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.05999999999999993,
+          "objective": 0.572316457902687
+        },
+        {
+          "value": 24.01942,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.04999999999999999,
+          "objective": 0.5623164579026871
+        },
+        {
+          "value": 24.272256,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.04000000000000004,
+          "objective": 0.5523164579026871
+        },
+        {
+          "value": 24.525092,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.029999999999999964,
+          "objective": 0.542316457902687
+        },
+        {
+          "value": 24.777928,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.02000000000000002,
+          "objective": 0.5323164579026871
+        },
+        {
+          "value": 25.030764,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.009999999999999941,
+          "objective": 0.522316457902687
+        },
+        {
+          "value": 25.536436,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.009999999999999941,
+          "objective": 0.522316457902687
+        },
+        {
+          "value": 25.789272,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.02000000000000002,
+          "objective": 0.5323164579026871
+        },
+        {
+          "value": 26.042108,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.029999999999999964,
+          "objective": 0.542316457902687
+        },
+        {
+          "value": 26.294944,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.04000000000000004,
+          "objective": 0.5523164579026871
+        },
+        {
+          "value": 26.54778,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.04999999999999999,
+          "objective": 0.5623164579026871
+        },
+        {
+          "value": 26.800616,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.06000000000000007,
+          "objective": 0.5723164579026871
+        },
+        {
+          "value": 27.053452,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07,
+          "objective": 0.5823164579026872
+        },
+        {
+          "value": 27.306288,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.07999999999999995,
+          "objective": 0.592316457902687
+        },
+        {
+          "value": 27.559124,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.09000000000000002,
+          "objective": 0.6023164579026872
+        },
+        {
+          "value": 27.81196,
+          "risk": 0.5123164579026871,
+          "risk_reduction": 0.0,
+          "intervention_magnitude": 0.09999999999999998,
+          "objective": 0.6123164579026871
+        }
+      ],
+      "status": "NO_EFFECTIVE_INTERVENTION",
+      "message": "No single change within limits reduces predicted risk by >= 0.02.",
+      "lowest_risk_found": 0.5123164579026871
+    }
+  ],
+  "multi_parameter_experiments": [],
+  "recommendation": {
+    "status": "NO_EFFECTIVE_INTERVENTION_FOUND",
+    "message": "No constrained single- or two-parameter change among the top root-cause candidates reduced the model's predicted risk enough. This does not mean the sample is fine - only that the model sees no safe lever among these features.",
+    "disclaimer": "This is a model-based counterfactual recommendation, not a physically validated process correction. Real semiconductor process changes require engineering validation and safety constraints."
+  },
+  "causality_note": "Root-cause candidates are hypotheses ranked by model and statistical evidence; SECOM has no ground-truth causal labels, so none of them is a proven root cause.",
+  "disclaimer": "This is a model-based counterfactual recommendation, not a physically validated process correction. Real semiconductor process changes require engineering validation and safety constraints."
+}

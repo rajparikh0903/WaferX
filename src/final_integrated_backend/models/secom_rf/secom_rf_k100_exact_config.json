@@ -1,0 +1,20 @@
+{
+  "model": "RandomForestClassifier",
+  "configuration": "SECOM RF k=100",
+  "n_sensors_selected": 100,
+  "feature_selection": "ANOVA f_classif",
+  "preprocessing": [
+    "DropBad",
+    "median imputation",
+    "RobustScaler",
+    "clip [-10, 10]",
+    "top 100 ANOVA features",
+    "StandardScaler"
+  ],
+  "rf": {
+    "n_estimators": 200,
+    "min_samples_leaf": 3,
+    "class_weight": "balanced_subsample",
+    "random_state": 0
+  }
+}

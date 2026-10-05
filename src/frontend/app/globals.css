@@ -1,0 +1,17 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+@layer base{
+ body{@apply bg-bg font-sans text-zinc-200 antialiased;background-image:radial-gradient(900px 400px at 15% -10%,rgba(79,157,255,.08),transparent 60%)}
+ h1,h2,h3{@apply tracking-tight text-zinc-50}
+ :focus-visible{outline:2px solid #4f9dff;outline-offset:2px;border-radius:6px}
+ ::selection{background:#4f9dff55}
+}
+@layer components{
+ .card{@apply rounded-lg border border-line bg-panel shadow-[0_1px_0_rgba(255,255,255,.03)_inset]}
+ .eyebrow{@apply text-xs font-medium text-zinc-400}
+ .num{@apply font-mono tabular-nums}
+ .btn-primary{@apply inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-semibold text-[#04101f] transition hover:brightness-110 active:scale-[.98] disabled:opacity-50}
+ .btn-ghost{@apply inline-flex items-center gap-2 rounded-md border border-line bg-raised px-3 py-1.5 text-sm text-zinc-200 transition hover:border-zinc-600}
+ .field{@apply mt-1 block w-full rounded-md border border-line bg-raised px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-accent}
+ .skeleton{@apply rounded-md bg-[linear-gradient(90deg,#141920,#1c232d,#141920)] bg-[length:200%_100%] animate-shimmer}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

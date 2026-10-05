@@ -1,0 +1,25 @@
+{
+  "train": {
+    "roc_auc_fail_proxy": 0.5629360328874248,
+    "pr_auc_fail_proxy": 0.10263495821905796,
+    "anomaly_rate_at_threshold": 0.10583941605839416,
+    "pass_anomaly_rate": 0.10068426197458455,
+    "fail_anomaly_rate": 0.1780821917808219
+  },
+  "validation": {
+    "roc_auc_fail_proxy": 0.6465151515151516,
+    "pr_auc_fail_proxy": 0.18353153137796396,
+    "anomaly_rate_at_threshold": 0.09361702127659574,
+    "pass_anomaly_rate": 0.07727272727272727,
+    "fail_anomaly_rate": 0.3333333333333333
+  },
+  "test": {
+    "roc_auc_fail_proxy": 0.6375,
+    "pr_auc_fail_proxy": 0.15117202995952606,
+    "anomaly_rate_at_threshold": 0.1059322033898305,
+    "pass_anomaly_rate": 0.09090909090909091,
+    "fail_anomaly_rate": 0.3125
+  },
+  "threshold": 0.9,
+  "note": "FAIL is only an evaluation proxy; SECOM has no ground-truth anomaly labels."
+}

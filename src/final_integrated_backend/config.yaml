@@ -1,0 +1,115 @@
+project:
+  seed: 42
+  model_version: 2.0.0-final-lightgbm
+  preprocessing_version: 2.0.0
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  preprocessing_dir: models/preprocessing
+  model_dir: models/failure_model
+  metadata_dir: models/metadata
+  reports_dir: reports
+data:
+  data_file: secom.data
+  labels_file: secom_labels.data
+  feature_name_template: Sensor {i}
+split:
+  method: stratified
+  train_frac: 0.7
+  val_frac: 0.15
+preprocessing:
+  max_missing_frac: 0.5
+  max_dominant_frac: 0.995
+  imputation: median
+  missing_indicators: false
+  indicator_min_missing_frac: 0.05
+training:
+  final_model: lightgbm
+  threshold_metric: f1
+  lightgbm:
+    n_estimators: 1000
+    learning_rate: 0.02
+    num_leaves: 15
+    max_depth: 5
+    min_child_samples: 30
+    min_split_gain: 0.01
+    reg_alpha: 0.5
+    reg_lambda: 1.0
+    subsample: 0.8
+    subsample_freq: 1
+    colsample_bytree: 0.7
+    early_stopping_rounds: 75
+risk:
+  screening_threshold: 0.1
+  classification_threshold: 0.5
+  medium_fraction: 0.5
+  critical_position: 0.5
+explainability:
+  global_split: train+validation
+  top_n_global: 20
+root_cause:
+  candidate_pool: 30
+  top_k: 5
+  weights:
+    shap: 0.4
+    deviation: 0.2
+    failure_association: 0.15
+    historical: 0.15
+    anomaly: 0.1
+  z_cap: 4.0
+  z_abnormal: 2.0
+  hist_min_current_z: 1.0
+  hist_k: 10
+  strength_high: 0.66
+  strength_medium: 0.33
+  confidence:
+    high_score: 0.7
+    high_min_strong: 3
+    medium_score: 0.45
+    medium_min_strong: 2
+    strong_component: 0.6
+  evidence_strong: 0.6
+  evidence_medium: 0.4
+  fdr_alpha: 0.05
+similarity:
+  fingerprint_features: 40
+  z_clip: 4.0
+  risk_weight: 0.0
+  k_display: 5
+counterfactual:
+  max_change_pct: 0.1
+  scale_span_floor: 0.25
+  min_change_pct: 0.005
+  grid_step_pct: 0.01
+  operating_percentiles:
+  - 1
+  - 99
+  lambda_penalty: 1.0
+  min_abs_reduction: 0.02
+  top_n_features: 5
+  pair_top_n: 3
+  pair_grid_points: 7
+  pair_min_improvement: 0.02
+  robust_neighbour_fraction: 0.5
+anomaly:
+  model: isolation_forest
+  train_on: training split PASS samples only
+  n_estimators: 200
+  max_samples: 0.7
+  max_features: 1.0
+  alert_percentile: 0.9
+  random_state: 42
+  expected_range:
+  - 0.0
+  - 1.0
+api:
+  cors_origins:
+  - '*'
+synthetic:
+  n_samples: 8000
+  n_features: 40
+  causal_features:
+  - 3
+  - 11
+  - 27
+  seed: 7

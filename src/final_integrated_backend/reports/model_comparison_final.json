@@ -1,0 +1,15 @@
+{
+  "original_temporal_xgboost": {
+    "accuracy_at_reported_threshold": 0.914,
+    "roc_auc": 0.6439,
+    "pr_auc": 0.087
+  },
+  "final_random_stratified_lightgbm": {
+    "test_accuracy_at_0.50": 0.9322033898305084,
+    "test_recall_at_0.10": 0.625,
+    "test_precision_at_0.10": 0.23255813953488372,
+    "test_f1_at_0.10": 0.3389830508474576,
+    "test_roc_auc": 0.7448863636363636,
+    "test_pr_auc": 0.25634660207104676
+  }
+}

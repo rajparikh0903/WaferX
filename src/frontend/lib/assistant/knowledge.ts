@@ -1,0 +1,5 @@
+// Static explainer text (not model output). Shown with an "Explainer" tag.
+export const SHAP_TEXT = "SHAP measures how strongly each feature pushed the model’s prediction for a sample. Positive values push toward FAIL, negative values toward PASS. The backend reports them in log-odds of FAIL.";
+export const RISK_TEXT = "Failure risk is the model’s predicted probability that a sample is FAIL. It is compared with a decision threshold to give the predicted class. It is a model estimate, not a measured outcome.";
+export const GRAPH_TEXT = "Feature-importance graph: a longer bar means greater influence on the model’s prediction; a shorter bar means lower influence. Green = relatively low importance, orange = medium, red = high. Red does NOT mean the physical sensor is defective. The bars show mean |SHAP|, i.e. how strongly a feature influenced the model on average.";
+export const RED_TEXT = "A sensor is shown in red because its mean |SHAP| is high relative to the other features, so the model relies on it heavily. It says nothing about the sensor hardware being faulty.";

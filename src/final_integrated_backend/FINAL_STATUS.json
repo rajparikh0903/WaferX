@@ -1,0 +1,19 @@
+{
+  "root_cause": "validated",
+  "anomaly_detection": "validated",
+  "anomaly_model": "IsolationForest",
+  "anomaly_training": "train_split_pass_only",
+  "anomaly_threshold": 0.9,
+  "artifact_rf_classification_test": {
+    "sample_11_failure_probability": 0.6980998026894852,
+    "sample_500_failure_probability": 0.041762394975536576
+  },
+  "anomaly_test": {
+    "sample_11_score": 0.6168132942326491,
+    "sample_23_score": 0.9912023460410557,
+    "sample_23_anomalous": true,
+    "test_roc_auc_fail_proxy": 0.6375,
+    "test_pr_auc_fail_proxy": 0.15117202995952606
+  },
+  "important_note": "No ground-truth anomaly labels exist in SECOM; FAIL is only a proxy for evaluation."
+}

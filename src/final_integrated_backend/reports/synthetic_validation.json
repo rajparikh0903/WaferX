@@ -1,0 +1,36 @@
+{
+  "LABEL": "SYNTHETIC ROOT-CAUSE VALIDATION - generated data, not SECOM",
+  "setup": {
+    "n_samples": 8000,
+    "n_features": 40,
+    "injected_causal_features": [
+      "Feature 4",
+      "Feature 12",
+      "Feature 28"
+    ],
+    "fail_rate": 0.07425,
+    "test_failures_evaluated": 85,
+    "failure_model_test_pr_auc": 0.479271957151006,
+    "threshold": 0.48454394936561584,
+    "truth_definition": "injected causal features with z > 1.5 in that failing sample"
+  },
+  "results": {
+    "full_root_cause_score": {
+      "top1_identification": 0.9529411764705882,
+      "top3_identification": 1.0,
+      "mean_reciprocal_rank": 0.9764705882352941
+    },
+    "shap_only": {
+      "top1_identification": 0.9529411764705882,
+      "top3_identification": 1.0,
+      "mean_reciprocal_rank": 0.9764705882352941
+    },
+    "deviation_only": {
+      "top1_identification": 0.5529411764705883,
+      "top3_identification": 0.8941176470588236,
+      "mean_reciprocal_rank": 0.7300000000000001
+    }
+  },
+  "random_baseline_top1_approx": 0.075,
+  "note": "Anomaly evidence was not supplied here (works without it). Results validate the ranking logic on a problem where the answer is known; they say nothing about SECOM root-cause accuracy."
+}
