@@ -6,74 +6,153 @@
 
 Before you begin, ensure you have the following installed:
 
-- [ ] [e.g., Python 3.11+]
-- [ ] [e.g., Node.js 18+]
-- [ ] [e.g., Docker Desktop]
-- [ ] [e.g., An IBM Cloud account with watsonx.ai access]
+- [ ] Python 3.11.x
+- [ ] Node.js 18+
+- [ ] npm
+- [ ] Git
+- [ ] Internet access for the first DINOv2/ViT backbone download if image inference is used
 
 ## Environment Variables
 
-Copy `.env.example` to `.env` and fill in the values:
+The current local prototype does not require `.env.example`, an external database, Docker, watsonx.ai credentials, or Slack credentials.
 
-```bash
-cp .env.example .env
+Create `src/frontend/.env.local` with:
+
+```env
+NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
 ```
+
+The project-level IBM Bob MCP configuration is stored at `.bob/mcp.json`. For local use, it should point to:
+
+```text
+YIELDTWIN_API_URL=http://127.0.0.1:8000
+```
+
+No API keys or external IBM credentials are required for the current local MCP integration.
 
 | Variable | Description | Required |
 |---|---|---|
-| `WATSONX_API_KEY` | Your IBM watsonx.ai API key | Yes |
-| `WATSONX_PROJECT_ID` | Your watsonx.ai project ID | Yes |
-| `DATABASE_URL` | PostgreSQL connection string | Yes |
-| `SLACK_WEBHOOK_URL` | Slack webhook for alerts | No |
+| `NEXT_PUBLIC_API_URL` | Local FastAPI backend URL used by the frontend | Yes |
+| `YIELDTWIN_API_URL` | Local YieldTwin API URL used by the IBM Bob MCP server in `.bob/mcp.json` | For IBM Bob/MCP |
 
 ## Installation
 
-```bash
+```powershell
 # 1. Clone the repository
-git clone https://github.com/[your-org]/[your-repo].git
-cd [your-repo]
+git clone https://github.com/rajparikh0903/WaferX.git
+cd WaferX
 
 # 2. Install backend dependencies
-[your command — e.g.: pip install -r requirements.txt]
+cd src/final_integrated_backend
+py -3.11 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
 
-# 3. Install frontend dependencies (if applicable)
-[your command — e.g.: cd frontend && npm install]
-
-# 4. Set up the database (if applicable)
-[your command — e.g.: python manage.py migrate]
+# 3. Preload image backbones (once, before first wafer-image inference)
+python scripts/preload_image_backbones.py
 ```
+
+For the frontend, open a second terminal from the repository root:
+
+```powershell
+# 4. Install frontend dependencies
+cd src/frontend
+npm install
+```
+
+Create `src/frontend/.env.local` containing:
+
+```env
+NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
+```
+
+If PowerShell prevents virtual environment activation, allow scripts for this terminal session and activate again:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\Activate.ps1
+```
+
+### IBM Bob MCP dependencies
+
+From the repository root:
+
+```powershell
+pip install -r src/bob_mcp/requirements.txt
+```
+
+Open the project in IBM Bob and ensure the `yieldtwin` MCP server from `.bob/mcp.json` is enabled.
 
 ## Running the Application
 
-```bash
-# Start the backend
-[your command — e.g.: uvicorn app.main:app --reload]
-
-# Start the frontend (in a separate terminal, if applicable)
-[your command — e.g.: cd frontend && npm run dev]
+```powershell
+# Start the backend in Terminal 1, from src/final_integrated_backend
+.\.venv\Scripts\Activate.ps1
+python -m uvicorn src.inference.api:app --reload --host 127.0.0.1 --port 8000
 ```
 
-The application will be available at: `http://localhost:[PORT]`
+Backend: `http://127.0.0.1:8000`  
+Swagger UI: `http://127.0.0.1:8000/docs`  
+Health check: `http://127.0.0.1:8000/health`
+
+```powershell
+# Start the frontend in Terminal 2, from src/frontend
+npm run dev
+```
+
+The frontend will be available at: `http://localhost:3000`
+
+### IBM Bob
+
+Keep the backend running on:
+
+```text
+http://127.0.0.1:8000
+```
+
+Then open the repository in IBM Bob. The `yieldtwin` MCP server in `.bob/mcp.json` connects Bob to the local YieldTwin APIs.
+
+Example Bob test:
+
+```text
+Use the YieldTwin MCP tools to investigate sample 100.
+Return the predicted class, failure probability, anomaly status,
+and top root-cause candidates.
+```
 
 ## Running Tests
 
-```bash
-[your test command — e.g.: pytest tests/ -v]
+Backend tests, from `src/final_integrated_backend` with the virtual environment active:
+
+```powershell
+pytest -q
+```
+
+Frontend production build, from `src/frontend`:
+
+```powershell
+npm run build
 ```
 
 ## Quick Demo (Optional)
 
-If you have a demo script or sample data to showcase the project quickly:
-
-```bash
-[e.g.: python demo/seed_demo_data.py]
-[e.g.: open http://localhost:8000/demo]
-```
+1. Start the backend on port `8000`.
+2. Start the frontend on port `3000`.
+3. Open `http://localhost:3000/investigate` and use sample ID `100` to run process investigation.
+4. Open `http://localhost:3000/what-if` and test a sensor counterfactual.
+5. Open `http://localhost:3000/image-analysis` and upload a supported wafer image (`.png`, `.jpg`, `.jpeg`, `.webp`, `.npy`, or `.npz`).
+6. Open the AI Engineer Assistant and ask it to investigate sample `100`.
 
 ## Troubleshooting
 
 | Issue | Solution |
 |---|---|
-| [e.g., `ModuleNotFoundError`] | [e.g., Run `pip install -r requirements.txt` again] |
-| [e.g., Database connection refused] | [e.g., Ensure PostgreSQL is running: `docker compose up db`] |
-| [e.g., watsonx.ai 401 error] | [e.g., Check `WATSONX_API_KEY` in your `.env` file] |
+| `ModuleNotFoundError: No module named 'src'` | Run backend commands from `src/final_integrated_backend`, activate its `.venv`, and use the documented `python -m uvicorn` command. |
+| `ModuleNotFoundError` for Python packages | Activate the backend `.venv` and run `python -m pip install -r requirements.txt` from `src/final_integrated_backend`. |
+| PowerShell blocks virtual environment activation | Run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in that terminal, then activate `.venv` again. |
+| Image model cannot load | Run `python scripts/preload_image_backbones.py` from `src/final_integrated_backend` with internet access. |
+| Frontend cannot reach backend | Check that FastAPI is running at `127.0.0.1:8000` and `NEXT_PUBLIC_API_URL` in `src/frontend/.env.local` matches it. |
+| Frontend API still uses an old URL | Stop and restart `npm run dev` after changing `.env.local`. |
+| TypeScript build fails | Run `npm run build` in `src/frontend` and fix the reported file/line. |
+| IBM Bob shows YieldTwin MCP as disconnected | Check `.bob/mcp.json`, confirm the Python interpreter can import `mcp`, and refresh/restart the MCP server in Bob. |
+| Swagger UI does not load | Check `http://127.0.0.1:8000/health` first, then open `http://127.0.0.1:8000/docs`. |

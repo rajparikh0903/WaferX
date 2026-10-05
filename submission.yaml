@@ -45,11 +45,11 @@ submission:
     parameters and evaluating possible parameter changes.
 
   key_features:
-    - "Failure-risk prediction for semiconductor process samples"
-    - "SHAP-based feature explanations and global feature importance"
-    - "Ranked root-cause candidates using model contribution and supporting evidence"
-    - "Historical evidence and counterfactual what-if investigation"
-    - "AI Engineer Assistant that routes investigation questions to backend capabilities"
+    - "Failure-risk prediction with SHAP-based local and global feature explanations"
+    - "Ranked root-cause candidates using model contribution, supporting evidence and historical matches"
+    - "Constrained counterfactual what-if investigation of parameter changes"
+    - "In-app AI Engineer Assistant that routes investigation questions to backend capabilities"
+    - "IBM Bob chatbot integration: an MCP server and custom investigation skill let engineers run analysis, anomaly, root-cause, what-if and feature-importance queries by chatting with Bob"
 
 tech_stack:
   languages:
@@ -60,14 +60,18 @@ tech_stack:
     - "FastAPI"
     - "Next.js 14"
     - "React"
-
+    - "LightGBM"
+    - "scikit-learn"
+    - "FastMCP"
+  
   ibm_technologies:
-    - "IBM Bob"
+    - "IBM Bob (chat agent connected through a custom MCP server, skill and rules)"
 
   databases:
     - "File-based storage (Parquet, CSV, joblib model artifacts) — no external database server"
 
   other:
+    - "Model Context Protocol (MCP)"
     - "Tailwind CSS"
     - "Recharts"
     - "Lucide"
@@ -77,16 +81,18 @@ tech_stack:
 what_we_are_most_proud_of: >
   The explainable root-cause engine: it ranks candidate sensors using
   several independent evidence sources and was validated on synthetic data
-  with known injected causes (Top-1 0.953, Top-3 1.000). We also unified
-  process-sensor and wafer-image intelligence in a single analysis endpoint
-  and a working dashboard.
+  with known injected causes (Top-1 0.953, Top-3 1.000). It is available
+  both in a working dashboard and through an IBM Bob chatbot integration
+  whose skill forbids inventing model outputs and requires labeling results
+  as hypotheses that need engineering validation.
 
 known_limitations: >
   WaferX currently includes placeholder/mock functionality for the anomaly
   detection panel and defect-image classification because their real APIs are
   still under development. The sample list uses demo sample IDs, and what-if
   results are model-based counterfactuals that require engineering validation
-  before any physical process change. 
+  before any physical process change. The IBM Bob MCP configuration in
+  .bob/mcp.json uses local Windows paths that must be edited for another machine.
 
 artifacts:
   source_code: "src/"
