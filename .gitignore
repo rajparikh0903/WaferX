@@ -57,7 +57,6 @@ vendor/
 
 # ── Rust ──────────────────────────────────────────────────────────────────────
 target/
-Cargo.lock  # remove this line if you want to commit lock file (recommended for apps)
 
 # ── macOS ─────────────────────────────────────────────────────────────────────
 .DS_Store
@@ -83,7 +82,7 @@ demo/*.avi
 demo/*.mkv
 
 # ── Docker volumes / local data ───────────────────────────────────────────────
-data/
+/data/
 logs/
 *.log
 
