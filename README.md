@@ -4,12 +4,12 @@ AI-assisted semiconductor defect investigation: from a failing sample to explain
 
 ## 👥 Team
 
-| Field | Value |
-|---|---|
-| **Team Name** | WaferX |
-| **Track** | AI |
-| **Team Lead** | Parikh Raj M — rparikh0903@gmail.com |
-| **Members** | Gundigara Shrut Pareshbhai, Patel Megha Sajeshkumar, Tailor Ishita Hemantkumar, Rana Khushi Dashrathbhai, Mewada Riya Dinesh |
+| **Field**     | **Value**                                                                                                                    |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Team Name** | WaferX                                                                                                                       |
+| **Track**     | AI                                                                                                                           |
+| **Team Lead** | Parikh Raj M — [rparikh0903@gmail.com](mailto:rparikh0903@gmail.com)                                                         |
+| **Members**   | Gundigara Shrut Pareshbhai, Patel Megha Sajeshkumar, Tailor Ishita Hemantkumar, Rana Khushi Dashrathbhai, Mewada Riya Dinesh |
 
 ---
 
@@ -21,12 +21,12 @@ Semiconductor process engineers need to investigate potential causes of wafer or
 
 ## 💡 Solution
 
-WaferX is an AI-assisted defect investigation workstation. It combines failure-risk prediction (LightGBM), SHAP-based explanations, ranked root-cause candidates backed by supporting evidence and historical matches, and model-based what-if simulation. Engineers can use the web dashboard or chat with IBM Bob, which is connected to the same backend through an MCP server, to move from a potentially failing sample to contributing parameters and possible parameter changes.
----
+## WaferX is an AI-assisted defect investigation workstation. It combines failure-risk prediction (LightGBM), SHAP-based explanations, ranked root-cause candidates backed by supporting evidence and historical matches, wafer-image classification and anomaly detection, and model-based what-if simulation. Engineers can use the web dashboard or chat with IBM Bob, which is connected to the same backend through an MCP server, to move from a potentially failing sample to contributing parameters, defect patterns, and possible parameter changes.
 
 ## ✨ Key Features
 
 - **Failure-risk prediction with explanations:** LightGBM model on the UCI SECOM dataset (test ROC-AUC 0.745, PR-AUC 0.256) with a high-sensitivity screening threshold, plus SHAP local and global feature importance.
+- **Wafer-image intelligence:** DINOv2 + ViT embeddings with trained MLP classifiers for wafer-map pattern classification, plus an image Isolation Forest detector for visual anomaly scoring. Supports WM and MIX model families.
 - **Ranked root-cause candidates:** combines SHAP contribution, sensor deviation, statistical association and historical similarity.
 - **Historical evidence and what-if analysis:** similar past cases plus constrained counterfactual simulation of parameter changes.
 - **In-app AI Engineer Assistant:** routes investigation questions to the backend capabilities.
@@ -36,17 +36,17 @@ WaferX is an AI-assisted defect investigation workstation. It combines failure-r
 
 ## 🛠️ Tech Stack
 
-| Category | Technologies |
-|---|---|
-| **Languages** | Python, TypeScript |
-| **Frameworks** | FastAPI, Next.js 14, React, LightGBM, scikit-learn, FastMCP |
-| **IBM Technologies** | IBM Bob (chat agent connected through a custom MCP server, skill and rules) |
-| **Databases** | None (file-based: Parquet, CSV, joblib model artifacts) |
-| **Other** | Model Context Protocol (MCP), SHAP, Tailwind CSS, Recharts, Lucide, SECOM dataset |
+| **Category**        | **Technologies**                                                                  |
+| ------------------- | --------------------------------------------------------------------------------- |
+| **Languages**       | Python, TypeScript                                                                |
+| **Frameworks**      | FastAPI, Next.js 14, React, LightGBM, scikit-learn, FastMCP                       |
+| **IBM Technologies** | IBM Bob (chat agent connected through a custom MCP server, skill and rules)     |
+| **Databases**       | None (file-based: Parquet, CSV, joblib model artifacts)                           |
+| **Other**           | Model Context Protocol (MCP), SHAP, Tailwind CSS, Recharts, Lucide, timm, PyTorch, OpenCV, SECOM dataset |
+
 ---
 
 ## 📁 Repository Structure
-
 ```
 bob-ai-hackathon-WaferX/
 ├── .bob/                           # IBM Bob configuration
@@ -68,7 +68,7 @@ bob-ai-hackathon-WaferX/
 │   ├── solution-overview.md
 │   ├── architecture.md
 │   ├── setup-guide.md
-│   └── template-guide.md           # Organizer guide
+│   └── template-guide.md            # Organizer guide
 ├── presentation/                   # Slide deck
 ├── src/
 │   ├── bob_mcp/                    # FastMCP server connecting IBM Bob to the backend
@@ -102,52 +102,29 @@ bob-ai-hackathon-WaferX/
 
 ## ⚡ How to Run
 
-```bash
-# 1. Clone the repo
-git clone https://github.com/rajparikh0903/bob-ai-hackathon-WaferX
-cd bob-ai-hackathon-WaferX
-
-# 2. Install dependencies
-py -3.11 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-
-# 3. Backend (terminal 1)
-cd src/final_integrated_backend
-python -m pip install -r requirements.txt python -m uvicorn src.inference.api:app --reload --host 127.0.0.1 --port 8000
-
-# 3. Frontend (terminal 2)
-cd src/frontend
-npm install
-npm run dev
-
-# 4. IBM Bob Integration
-
-IBM Bob is integrated through the project-level MCP server.
-From the repository root:
-
-pip install -r src/bob_mcp/requirements.txt
-```
+\# 1. Clone the repo git clone [https://github.com/rajparikh0903/bob-ai-hackathon-WaferX](https://github.com/rajparikh0903/bob-ai-hackathon-WaferX) cd bob-ai-hackathon-WaferX  # 2. Install dependencies py -3.11 -m venv .venv .\\.venv\Scripts\Activate.ps1  # 3. Backend (terminal 1) cd src/final_integrated_backend python -m pip install -r requirements.txt python -m uvicorn src.inference.api:app --reload --host 127.0.0.1 --port 8000  # 3. Frontend (terminal 2) cd src/frontend npm install npm run dev  # 4. IBM Bob Integration  IBM Bob is integrated through the project-level MCP server. From the repository root:  pip install -r src/bob_mcp/requirements.txt
 
 ---
 
 ## 🖥️ Demo
 
-| Artifact | Link |
-|---|---|
-| 📹 Demo Video | [See demo/demo-video-link.txt](demo/demo-video-link.txt) |
-| 🌐 Live Demo | NOT DEPLOYED — run locally using docs/setup-guide.md |
-| 🖼️ Screenshots | [See demo/screenshots/](demo/screenshots/) |
-| 📊 Presentation | [See presentation/](presentation/) |
+| **Artifact**    | **Link**                                                                                                                    |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 📹 Demo Video   | [See demo/demo-video-link.txt](https://github.com/rajparikh0903/bob-ai-hackathon-WaferX/blob/main/demo/demo-video-link.txt) |
+| 🌐 Live Demo    | NOT DEPLOYED — run locally using docs/setup-guide.md                                                                        |
+| 🖼️ Screenshots | [See demo/screenshots/](https://github.com/rajparikh0903/bob-ai-hackathon-WaferX/tree/main/demo/screenshots)              |
+| 📊 Presentation | [See presentation/](https://github.com/rajparikh0903/bob-ai-hackathon-WaferX/tree/main/presentation)                      |
 
 ---
 
 ## ⚠️ Known Limitations
 
-- The anomaly detection panel and defect-image classification include placeholder/mock functionality because their real APIs are still under development.
+- The wafer-image intelligence APIs are implemented and integrated with the dashboard. Image anomaly classification currently uses the classifier-derived anomaly score (`1 - normal-class probability`) with a 0.5 threshold, while the image Isolation Forest provides an additional detector score rather than being fused into the binary anomaly decision.
+- The process anomaly detector is an unsupervised Isolation Forest calibrated against the PASS training population; anomaly evaluation is only a proxy because SECOM has no ground-truth anomaly labels.
 - The sample list uses demo sample IDs from the SECOM dataset.
 - Root-cause outputs are model-based hypotheses, not confirmed physical causes, and SECOM has no ground-truth causal labels.
 - What-if results are model-based counterfactuals and need engineering validation before any physical process change.
-- The IBM Bob MCP configuration (`.bob/mcp.json`) contains local Windows paths that must be edited on another machine.
+- The IBM Bob MCP configuration (`.bob/mcp.json`) contains local Windows paths that must be edited on another machine, and the MCP API URL can be configured through `YIELDTWIN_API_URL`.
 - Not deployed: run locally using the steps above.
 
 ---
@@ -155,5 +132,3 @@ pip install -r src/bob_mcp/requirements.txt
 ## 🏅 What We're Most Proud Of
 
 The explainable root-cause engine. It ranks candidate sensors using several independent evidence sources and was validated on synthetic data with known injected causes (Top-1 0.953, Top-3 1.000). It is available both in a working dashboard and through an IBM Bob chatbot integration whose skill forbids inventing model outputs and requires labeling results as hypotheses that need engineering validation.
-
----
