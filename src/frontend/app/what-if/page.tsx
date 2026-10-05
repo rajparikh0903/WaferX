@@ -27,31 +27,43 @@ export default function WhatIfPage() {
   const lo = cand?.normal_stats ? Math.min(cand.normal_stats.p5, cand.current_value) : 0;
   const hi = cand?.failure_stats ? Math.max(cand.failure_stats.p95, cand.current_value) : 1;
 
-  useEffect(() => { // debounced, cancellable backend call
-    if (!base || !feature || value === null) return;
+useEffect(() => {
+  if (!base || !feature || value === null) return;
 
-    // Capture narrowed values before entering the async timeout callback.
-    // This keeps the existing runtime behavior while satisfying the production TypeScript build.
-    const sampleId = base.sample.sample_id;
-    const testValue = value;
+  const sampleId = base.sample.sample_id;
+  if (sampleId === null || sampleId === undefined) return;
 
-    const t = setTimeout(async () => {
-      ctl.current?.abort();
-      const controller = new AbortController();
-      ctl.current = controller;
-      setBusy(true);
-      setErr(null);
+  const testValue = value;
 
-      try {
-        setRes(await whatIf(sampleId, feature, testValue, controller.signal));
-      } catch (e: any) {
-        if (e?.name !== "AbortError") setErr(msg(e));
+  const t = setTimeout(async () => {
+    ctl.current?.abort();
+
+    const controller = new AbortController();
+    ctl.current = controller;
+
+    setBusy(true);
+    setErr(null);
+
+    try {
+      setRes(
+        await whatIf(
+          sampleId,
+          feature,
+          testValue,
+          controller.signal
+        )
+      );
+    } catch (e: any) {
+      if (e?.name !== "AbortError") {
+        setErr(msg(e));
       }
-      setBusy(false);
-    }, 400);
+    }
 
-    return () => clearTimeout(t);
-  }, [base, feature, value]);
+    setBusy(false);
+  }, 400);
+
+  return () => clearTimeout(t);
+}, [base, feature, value]);
 
   const before = pick(res, ["current_risk", "baseline_probability", "baseline_risk", "original_probability"]) ?? base?.prediction.failure_probability;
   const after = pick(res, ["scenario_risk", "new_probability", "scenario_probability", "counterfactual_probability", "failure_probability"]);
