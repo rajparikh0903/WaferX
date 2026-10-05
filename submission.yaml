@@ -27,7 +27,7 @@ team:
       email: "mewadariya45@gmail.com"
 
 submission:
-  title: "Yeild Intelligence"
+  title: "Yield Intelligence"
 
   problem_statement: >
     Semiconductor process engineers need to investigate potential causes of
@@ -39,13 +39,15 @@ submission:
   solution_summary: >
     WaferX is an AI-assisted semiconductor defect investigation workstation
     that combines failure-risk prediction, SHAP-based explanations, ranked
-    root-cause candidates, supporting evidence, historical matches, and
-    model-based what-if simulation. It helps process engineers move from
-    detecting a potentially failing sample to investigating contributing
-    parameters and evaluating possible parameter changes.
+    root-cause candidates, supporting evidence, historical matches,
+    wafer-image classification and anomaly detection, and model-based what-if
+    simulation. It helps process engineers move from detecting a potentially
+    failing sample to investigating contributing parameters, identifying
+    wafer-map defect patterns, and evaluating possible parameter changes.
 
   key_features:
     - "Failure-risk prediction with SHAP-based local and global feature explanations"
+    - "Wafer-map defect classification using DINOv2 + ViT embeddings and trained MLP models, with image anomaly detection"
     - "Ranked root-cause candidates using model contribution, supporting evidence and historical matches"
     - "Constrained counterfactual what-if investigation of parameter changes"
     - "In-app AI Engineer Assistant that routes investigation questions to backend capabilities"
@@ -63,7 +65,7 @@ tech_stack:
     - "LightGBM"
     - "scikit-learn"
     - "FastMCP"
-  
+
   ibm_technologies:
     - "IBM Bob (chat agent connected through a custom MCP server, skill and rules)"
 
@@ -76,6 +78,9 @@ tech_stack:
     - "Recharts"
     - "Lucide"
     - "SHAP"
+    - "PyTorch"
+    - "timm"
+    - "OpenCV"
     - "SECOM semiconductor dataset"
 
 what_we_are_most_proud_of: >
@@ -87,12 +92,19 @@ what_we_are_most_proud_of: >
   as hypotheses that need engineering validation.
 
 known_limitations: >
-  WaferX currently includes placeholder/mock functionality for the anomaly
-  detection panel and defect-image classification because their real APIs are
-  still under development. The sample list uses demo sample IDs, and what-if
-  results are model-based counterfactuals that require engineering validation
-  before any physical process change. The IBM Bob MCP configuration in
-  .bob/mcp.json uses local Windows paths that must be edited for another machine.
+  WaferX's root-cause outputs are model-based hypotheses rather than confirmed
+  physical causes because the SECOM dataset has no ground-truth causal labels.
+  The process anomaly detector is an unsupervised Isolation Forest calibrated
+  against the PASS training population, so anomaly evaluation is only a proxy.
+  Wafer-image anomaly classification currently uses the classifier-derived
+  anomaly score (1 - normal-class probability) with a 0.5 threshold, while
+  the image Isolation Forest provides an additional detector score rather than
+  being fused into the binary anomaly decision. The sample list uses demo
+  sample
+  IDs from the SECOM dataset, and what-if results are model-based
+  counterfactuals that require engineering validation before any physical
+  process change. The IBM Bob MCP configuration in .bob/mcp.json uses local
+  Windows paths that must be edited for another machine.
 
 artifacts:
   source_code: "src/"
