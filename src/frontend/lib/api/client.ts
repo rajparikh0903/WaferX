@@ -49,7 +49,7 @@ async function request<T>(path: string, init: RequestInit = {}, timeoutMs = 1200
 
 const post = <T,>(p: string, body: unknown) => request<T>(p, { method: "POST", body: JSON.stringify(body) });
 
-export const health = () => request<HealthResponse>("/health", {}, 15000);
+export const health = () => request<HealthResponse>("/health", {}, 100000);
 export const getModelInfo = () => request<ModelInfo>("/model-info");
 export const getFeatureImportance = (topN = 20) => request<FeatureImportance>(`/feature-importance?top_n=${topN}`);
 export const getAnomalyInfo = () => request<Record<string, any>>("/anomaly-info");
