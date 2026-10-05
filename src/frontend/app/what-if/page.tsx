@@ -29,12 +29,27 @@ export default function WhatIfPage() {
 
   useEffect(() => { // debounced, cancellable backend call
     if (!base || !feature || value === null) return;
+
+    // Capture narrowed values before entering the async timeout callback.
+    // This keeps the existing runtime behavior while satisfying the production TypeScript build.
+    const sampleId = base.sample.sample_id;
+    const testValue = value;
+
     const t = setTimeout(async () => {
-      ctl.current?.abort(); ctl.current = new AbortController(); setBusy(true); setErr(null);
-      try { setRes(await whatIf(base.sample.sample_id, feature, value, ctl.current.signal)); }
-      catch (e: any) { if (e?.name !== "AbortError") setErr(msg(e)); }
+      ctl.current?.abort();
+      const controller = new AbortController();
+      ctl.current = controller;
+      setBusy(true);
+      setErr(null);
+
+      try {
+        setRes(await whatIf(sampleId, feature, testValue, controller.signal));
+      } catch (e: any) {
+        if (e?.name !== "AbortError") setErr(msg(e));
+      }
       setBusy(false);
     }, 400);
+
     return () => clearTimeout(t);
   }, [base, feature, value]);
 
