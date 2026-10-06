@@ -68,7 +68,7 @@ bob-ai-hackathon-WaferX/
 │   ├── solution-overview.md
 │   ├── architecture.md
 │   ├── setup-guide.md
-│   └── template-guide.md            # Organizer guide
+│   └── template-guide.md           # Organizer guide
 ├── presentation/                   # Slide deck
 ├── src/
 │   ├── bob_mcp/                    # FastMCP server connecting IBM Bob to the backend
@@ -88,6 +88,22 @@ bob-ai-hackathon-WaferX/
 │   │   ├── requirements.txt
 │   │   └── start_backend.bat
 │   ├── frontend/                   # Next.js dashboard
+│   │   ├── .next/                  # Next.js build and cache output
+│   │   ├── app/                    # Application routes, pages, and layouts
+│   │   ├── components/             # Reusable UI components
+│   │   ├── lib/                    # Shared utilities and API integration
+│   │   ├── node_modules/           # Installed npm dependencies
+│   │   ├── .env.example            # Example environment variables
+│   │   ├── .env.local              # Local environment variables
+│   │   ├── API_INTEGRATION.md      # Frontend API integration notes
+│   │   ├── next-env.d.ts           # Next.js TypeScript declarations
+│   │   ├── next.config.js          # Next.js configuration
+│   │   ├── package-lock.json       # Locked npm dependency versions
+│   │   ├── package.json            # Project scripts and dependencies
+│   │   ├── README.md               # Frontend documentation
+│   │   ├── start_frontend.bat      # Windows startup script
+│   │   ├── tailwind.config.js       # Tailwind CSS configuration
+│   │   └── tsconfig.json            # TypeScript configuration
 │   ├── .env.example
 │   ├── README.md
 │   └── wafer images to test.zip    # Sample wafer images for testing
@@ -102,7 +118,32 @@ bob-ai-hackathon-WaferX/
 
 ## ⚡ How to Run
 
-\# 1. Clone the repo git clone [https://github.com/rajparikh0903/bob-ai-hackathon-WaferX](https://github.com/rajparikh0903/bob-ai-hackathon-WaferX) cd bob-ai-hackathon-WaferX  # 2. Install dependencies py -3.11 -m venv .venv .\\.venv\Scripts\Activate.ps1  # 3. Backend (terminal 1) cd src/final_integrated_backend python -m pip install -r requirements.txt python -m uvicorn src.inference.api:app --reload --host 127.0.0.1 --port 8000  # 3. Frontend (terminal 2) cd src/frontend npm install npm run dev  # 4. IBM Bob Integration  IBM Bob is integrated through the project-level MCP server. From the repository root:  pip install -r src/bob_mcp/requirements.txt
+```bash
+# 1. Clone the repo
+git clone https://github.com/rajparikh0903/bob-ai-hackathon-WaferX
+cd bob-ai-hackathon-WaferX
+
+# 2. Install dependencies
+py -3.11 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+# 3. Backend (terminal 1)
+cd src/final_integrated_backend
+python -m pip install -r requirements.txt python -m uvicorn src.inference.api:app --reload --host 127.0.0.1 --port 8000
+
+# 3. Frontend (terminal 2)
+cd src/frontend
+npm install
+npm run dev
+
+# 4. IBM Bob Integration
+
+IBM Bob is integrated through the project-level MCP server.
+From the repository root:
+
+pip install -r src/bob_mcp/requirements.txt
+```
+
 
 ---
 
